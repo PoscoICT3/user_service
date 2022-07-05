@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.userService.user.repository.UserMapper">
+    <select id="getUserList" resultType="UserDto">
+        select
+        id, userId, password, phoneNum, name
+        from
+        user
+    </select>
+
+    <select id="getUserById" resultType="UserDto" parameterType="UserDto">
+        select
+        id,userId, password, phoneNum, name
+        from
+        user
+        where
+        id = #{id}
+    </select>
+
+    <select id="getLoginByUserIdAndPassword" resultType="UserDto" parameterType="UserDto">
+        select
+        id,userId, password, phoneNum, name
+        from
+        user
+        where
+        userId = #{userId} and password = #{password}
+    </select>
+
+    <insert id="createUser" parameterType="UserDto">
+        insert
+        into
+        user (userId, password, phoneNum, name)
+        values(#{userId}, #{password}, #{phoneNum}, #{name})
+    </insert>
+
+    <delete id="deleteUserById" parameterType="UserDto">
+        delete
+        from user
+        where id = #{id}
+    </delete>
+
+    <update id="updateUserById" parameterType="UserDto">
+        update user
+        <set>
+            <if test="phoneNum!= null">phoneNum = #{phoneNum},</if>
+            <if test="name!= null">name = #{name},</if>
+        </set>
+        where
+        id=#{id}
+
+    </update>
+
+</mapper>

@@ -1,0 +1,22 @@
+
+server:
+  port: 9000
+
+spring:
+  application:
+    name: user-service
+  jpa:
+    database: mysql
+    show-sql: true
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka
+
+
+mybatis:
+  config-location: classpath:config/myBatis.xml
+
