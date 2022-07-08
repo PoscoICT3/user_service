@@ -3,4 +3,4 @@ spring:
     config:
       uri: http://localhost:7007
       name: config
-      profile: dev
+      profile: prd
