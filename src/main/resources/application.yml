@@ -1,0 +1,39 @@
+
+server:
+  port: 9000
+
+spring:
+  application:
+    name: user-service
+  jpa:
+    database: mysql
+    show-sql: true
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka
+
+
+mybatis:
+  config-location: classpath:config/myBatis.xml
+
+
+spring.kafka.consumer.bootstrap-servers=카프카ip:카프카port
+spring.kafka.consumer.group-id=그룹ID
+spring.kafka.consumer.auto-offset-reset=earliest
+spring.kafka.consumer.key-deserializer=org.apache.kafka.common.serialization.StringDeserializer
+spring.kafka.consumer.value-deserializer=org.apache.kafka.common.serialization.StringDeserializer
+
+
+spring:
+  kafka:
+    consumer:
+      auto-offset-reset: earliest
+      bootstrap-servers: !!binary |-
+        w6zCucK0w63ClMKEw6zCucK0aXA6w6zCucK0w63ClMKEw6zCucK0cG9ydA==
+      group-id: ê·¸ë£¹ID
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
